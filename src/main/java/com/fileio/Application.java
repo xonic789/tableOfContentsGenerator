@@ -17,7 +17,7 @@ public class Application {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        bw.write("파일의 경로를 입력해주세요 (1 : 경로 2 : 내용 3 : 종료 >> ");
+        bw.write("목차 생성기 1 : 파일 경로 2 : 내용 3 : 종료 >> ");
         bw.flush();
         String how = br.readLine();
         while (true){
