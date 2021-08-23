@@ -14,7 +14,7 @@ public class ContentReader {
     private final BufferedReader bufferedReader;
 
     public ContentReader(){
-        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        bufferedReader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
     }
 
     public ContentReader(String path) throws IOException {
