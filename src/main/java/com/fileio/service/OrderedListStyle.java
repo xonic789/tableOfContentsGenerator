@@ -5,6 +5,7 @@ import com.fileio.reader.ContentReader;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 import java.util.stream.Collectors;
 
 public class OrderedListStyle implements TableOfContentsGenerator {
@@ -12,6 +13,7 @@ public class OrderedListStyle implements TableOfContentsGenerator {
     // 헤더 나열할 기준
     private int standard;
     private int now;
+    private int size = 1;
 
     public OrderedListStyle(List<String> contents){
         this.contents = new Contents(contents);
@@ -67,12 +69,12 @@ public class OrderedListStyle implements TableOfContentsGenerator {
         // 1. 기준인 standard와 같을 때는 tab = 0
         // 2. standard 보다 클 때는 now에 count 넣고
         if (standard >= hashTagCount){
-            header = ">"+ tmp.charAt(0) + ". " + "[" + "**" + tmp.substring(tmp.indexOf(" ") + 1) + "**" + "]";
+            if (isNumber(tmp.charAt(0))) header = ">"+ tmp.charAt(0) + ". " + "[" + "**" + tmp.substring(tmp.indexOf(" ") + 1) + "**" + "]";
+            else header = ">" + size++ +". "+ "[" + "**" + tmp.substring(tmp.indexOf(" ") + 1) + "**" + "]";
+
             now = standard;
         }else {
-            if (now < hashTagCount){
-                now = hashTagCount;
-            }
+            now = hashTagCount;
             header = ">"+ tabs[now - standard] +"- "+"[" + tmp + "]";
         }
         return header;
