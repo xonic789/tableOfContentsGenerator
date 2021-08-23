@@ -40,7 +40,7 @@ public class OrderedListStyle implements TableOfContentsGenerator {
     private String convertLink(String header){
         StringBuilder sb = new StringBuilder();
         for (char ch : header.substring(header.indexOf(" ") + 1).toLowerCase().toCharArray()){
-            if (ch == ' ') sb.append('-');
+            if (ch == ' ' || ch == '-') sb.append('-');
             else if (isNumber(ch) || isKorean(ch) || Character.isAlphabetic(ch)){
                 sb.append(ch);
             }
