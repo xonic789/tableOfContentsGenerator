@@ -30,7 +30,7 @@ public class ContentReader {
         List<String> contents = new ArrayList<>();
         while (true){
             String line = bufferedReader.readLine();
-            if (line == null) break;
+            if (line == null || line.equals("#e")) break;
             contents.add(line);
         }
         return contents;
