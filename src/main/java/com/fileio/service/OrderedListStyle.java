@@ -70,7 +70,7 @@ public class OrderedListStyle implements TableOfContentsGenerator {
         // 2. standard 보다 클 때는 now에 count 넣고
         if (standard >= hashTagCount){
             if (isNumber(tmp.charAt(0))) header = ">"+ tmp.charAt(0) + ". " + "[" + "**" + tmp.substring(tmp.indexOf(" ") + 1) + "**" + "]";
-            else header = ">" + size++ +". "+ "[" + "**" + tmp.substring(tmp.indexOf(" ") + 1) + "**" + "]";
+            else header = ">" + size++ +". "+ "[" + "**" + tmp + "**" + "]";
 
             now = standard;
         }else {
